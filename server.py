@@ -1,5 +1,4 @@
-# python3 -m venv calc --> sourse bin/activate --> deactivate
-
+import os
 from bottle import route, run, static_file, request, template
 from logic import cesar_code, cesar_decode, bruteforce
 
@@ -47,5 +46,7 @@ def crack_message():
     return template('bruteforce', options=options)
 
 
-if __name__ == '__main__':
-    run(host='localhost', port=8081)
+if os.environ.get('APP_LOCATION') == 'heroku':
+    run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+else:
+    run(host='localhost', port=8080)
