@@ -31,7 +31,7 @@ def encryption():
         result = cesar_decode(request.forms.get('text'), int(request.forms.get('key')))
     else:
         result = None
-    return template('index', result1=result)
+    return template('index', result=result)
 
 
 @route('/bruteforce')

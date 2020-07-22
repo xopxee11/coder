@@ -23,7 +23,7 @@
         </form>
         %if result is not None:
             <div class="result">
-                <p>{{ result1 }}</p>
+                <p>{{ result }}</p>
             </div>
         %end
     </div>
